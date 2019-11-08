@@ -10,6 +10,8 @@
 
 /*
 
+Я погуглил и нашёл в интернете статью-шпаргалку, где есть информация по параметру "true limit"
+
 Делаем дамп:
 C:\Users\User\AppData\Roaming\DBeaverData\workspace6\General>"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqldump.exe" -u root --where="true limit 100" -p mysql help_keyword >second_dump.sql
 
