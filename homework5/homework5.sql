@@ -112,3 +112,22 @@ SELECT COUNT(*) birthday_count,
                 SUBSTRING(birthday, 6, 5) mmdd
   FROM profiles
  GROUP BY mmdd;
+
+
+
+
+/*
+ Урок 5
+ Задание 3 (Агрегация данных)
+Подсчитайте количество дней рождения, которые приходятся
+на каждый из дней недели. Следует учесть, что необходимы
+дни недели текущего года, а не года рождения.
+*/
+
+DROP TABLE IF EXISTS numbers_multiply;
+CREATE TABLE numbers_multiply(
+    n integer
+);
+INSERT INTO numbers_multiply VALUES (1), (2), (3), (4), (5);
+
+SELECT ROUND(EXP(SUM(LOG(n))),3) from numbers_multiply;
