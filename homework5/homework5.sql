@@ -130,5 +130,5 @@ CREATE TABLE numbers_multiply(
 INSERT INTO numbers_multiply
 VALUES (1), (2), (3), (4), (5);
 
-SELECT ROUND(EXP(SUM(LOG(n))),3)
+SELECT ROUND(EXP(SUM(LOG(n))))
   FROM numbers_multiply;
