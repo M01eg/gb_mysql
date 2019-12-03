@@ -1,5 +1,5 @@
 /*
- Урок 5
+ Урок 7
  Задание 1
 Составьте список пользователей users, которые осуществили
 хотя бы один заказ orders в интернет магазине
@@ -13,7 +13,7 @@ SELECT DISTINCT u.*
 
 
 /*
- Урок 5
+ Урок 7
  Задание 2
 Выведите список товаров products и разделов catalogs,
 который соответствует товару.
@@ -27,7 +27,7 @@ SELECT c.*, p.*
 
 
 /*
- Урок 5
+ Урок 7
  Задание 3
 Пусть имеется таблица рейсов flights (id, from, to)
 и таблица городов cities (label, name). Поля from, to и label
@@ -37,14 +37,14 @@ SELECT c.*, p.*
 
 DROP TABLE IF EXISTS flights;
 CREATE TABLE flights (
-	id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     `from` VARCHAR(50),
     `to`   VARCHAR(50)
 );
 
 DROP TABLE IF EXISTS cities;
 CREATE TABLE cities (
-	label VARCHAR(50),
+    label VARCHAR(50),
     name  VARCHAR(50)
 );
 
