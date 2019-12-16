@@ -12,7 +12,7 @@ redis 127.0.0.1:6379> HINCRBY ips '192.168.0.1' 1
 redis 127.0.0.1:6379> HSET ips '192.168.0.2' 1
 (integer) 1
 redis 127.0.0.1:6379> HINCRBY ips '192.168.0.2' 1
-(integer) 3
+(integer) 2
 redis 127.0.0.1:6379> HGETALL ips
 1) "192.168.0.1"
 2) "2"
