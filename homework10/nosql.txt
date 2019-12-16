@@ -1,0 +1,80 @@
+/*
+ Урок 11
+ Задание 1
+В базе данных Redis подберите коллекцию для подсчета посещений
+с определенных IP-адресов.
+*/
+
+redis 127.0.0.1:6379> HSET ips '192.168.0.1' 1
+(integer) 1
+redis 127.0.0.1:6379> HINCRBY ips '192.168.0.1' 1
+(integer) 2
+redis 127.0.0.1:6379> HSET ips '192.168.0.2' 1
+(integer) 1
+redis 127.0.0.1:6379> HINCRBY ips '192.168.0.2' 1
+(integer) 3
+redis 127.0.0.1:6379> HGETALL ips
+1) "192.168.0.1"
+2) "2"
+3) "192.168.0.2"
+4) "2"
+redis 127.0.0.1:6379>
+
+
+
+
+/*
+ Урок 11
+ Задание 2
+При помощи базы данных Redis решите задачу поиска имени пользователя
+по электронному адресу и наоборот, поиск электронного адреса
+пользователя по его имени.
+*/
+
+redis 127.0.0.1:6379> HSET emails 'oleg' 'omerinov.box@gmail.com'
+(integer) 1
+redis 127.0.0.1:6379> HSET emails 'vasily' 'vpupkin@gmail.com'
+(integer) 1
+redis 127.0.0.1:6379> HSET emails 'ivan' 'ivanov@gmail.com'
+(integer) 1
+redis 127.0.0.1:6379> HGETALL emails
+1) "oleg"
+2) "omerinov.box@gmail.com"
+3) "vasily"
+4) "vpupkin@gmail.com"
+5) "ivan"
+6) "ivanov@gmail.com"
+redis 127.0.0.1:6379> HGET emails 'vasily'
+"vpupkin@gmail.com"
+redis 127.0.0.1:6379>
+redis 127.0.0.1:6379>
+redis 127.0.0.1:6379>
+redis 127.0.0.1:6379> HSET first_names 'omerinov.box@gmail.com' 'oleg'
+(integer) 1
+redis 127.0.0.1:6379> HSET first_names 'vpupkin@gmail.com' 'vasily'
+(integer) 1
+redis 127.0.0.1:6379> HSET first_names 'ivanov@gmail.com' 'ivan'
+(integer) 1
+redis 127.0.0.1:6379> HGETALL first_names
+1) "omerinov.box@gmail.com"
+2) "oleg"
+3) "vpupkin@gmail.com"
+4) "vasily"
+5) "ivanov@gmail.com"
+6) "ivan"
+redis 127.0.0.1:6379> HGET first_names vpupkin@gmail.com
+"vasily"
+redis 127.0.0.1:6379> HGET first_names 'vpupkin@gmail.com'
+"vasily"
+redis 127.0.0.1:6379>
+
+
+
+
+/*
+ Урок 11
+ Задание 3
+Организуйте хранение категорий и товарных позиций учебной базы
+данных shop в СУБД MongoDB.
+*/
+
