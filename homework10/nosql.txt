@@ -78,3 +78,53 @@ redis 127.0.0.1:6379>
 данных shop в СУБД MongoDB.
 */
 
+> use shop
+switched to db shop
+> db.createCollection('catalogs')
+{ "ok" : 1 }
+> db.createCollection('products')
+{ "ok" : 1 }
+>
+>
+>
+> db.catalogs.insertMany([
+...     {name: "Процессоры"},
+...     {name: "Материнские платы"},
+...     {name: "Видеокарты"}
+... ]);
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5df7be9eee2463819220f2bd"),
+                ObjectId("5df7be9eee2463819220f2be"),
+                ObjectId("5df7be9eee2463819220f2bf")
+        ]
+}
+> db.catalogs.find()
+{ "_id" : ObjectId("5df7be9eee2463819220f2bd"), "name" : "Процессоры" }
+{ "_id" : ObjectId("5df7be9eee2463819220f2be"), "name" : "Материнские платы" }
+{ "_id" : ObjectId("5df7be9eee2463819220f2bf"), "name" : "Видеокарты" }
+>
+>
+>
+> db.products.insertMany([
+...     {name: "Intel Core i3-8100",
+...      description: "Процессор для настольных персональных компьютеров, основа
+нных на платформе Intel.",
+...      price: 7890.00,
+...      catalog_id: new ObjectId("5df7be9eee2463819220f2bd")},
+...
+...     {name: "ASUS ROG MAXIMUS X HERO",
+...      description: "Материнская плата ASUS ROG MAXIMUS X HERO, Z370, Socket 1
+151-V2, DDR4, ATX",
+...      price: 19310.00,
+...      catalog_id: new ObjectId("5df7be9eee2463819220f2be")},
+... ]);
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5df7c4c8ee2463819220f2c0"),
+                ObjectId("5df7c4c8ee2463819220f2c1")
+        ]
+}
+>
